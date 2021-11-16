@@ -1,3 +1,15 @@
-<p>{{name}}</p>
+<h2>celebrity list</h2>
+<a href="/celebrities/create">create a new celebrities</a>
+<ul>
+  {{#each all}}
+    <li>
+      <p>name: {{name}}</p>
+      <p>occupation: {{occupation}}</p>
+      <p>catch phrase: {{catchPhrase}}</p>
+
+    </li>
+  {{/each}}
+</ul>
+{{!-- <p>{{name}}</p>
 <p>{{occupation}}</p>
-<p>{{catchPhrase}}</p>
+<p>{{catchPhrase}}</p> --}}

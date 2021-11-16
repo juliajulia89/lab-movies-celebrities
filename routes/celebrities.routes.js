@@ -24,11 +24,12 @@ router.post("/create", async (req, res) => {
   }
 });
 
-router.get("/", (req, res, next) => {
-  Celebrity.find()
-    .then((celebrities) => {
-      res.render("celebrities/celebrities", { celebrities: celebrities });
-    })
-    .catch((error) => res.render("error", { error: error }));
+router.get("/", async (req, res, next) => {
+  try {
+    const allCelebs = await Celebrity.find();
+    res.render("celebrities/celebrities", { all: allCelebs });
+  } catch (error) {
+    console.log(error);
+  }
 });
 module.exports = router;
