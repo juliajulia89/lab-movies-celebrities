@@ -25,9 +25,9 @@ router
     }
   });
 
-router.get("/", async (req, res, next) => {
+router.get("/", async (req, res) => {
   try {
-    const movie = await Movie.find().populate("cast");
+    const allMovies = await Movie.find().populate("cast");
     console.log(allMovies);
     res.render("movies/movies", { allMovies });
   } catch (error) {
